@@ -17,15 +17,22 @@ namespace Mission09_jab468.Controllers
         //{
         //    _logger = logger;
         //}
-        private BookstoreContext context { get; set; }
-        public HomeController (BookstoreContext bookstoreContext)
+        private IBookListRepository repo;
+
+        public HomeController(IBookListRepository temp)
         {
-            context = bookstoreContext;
+            repo = temp;
         }
+
+        //private BookstoreContext context { get; set; }
+        //public HomeController (BookstoreContext bookstoreContext)
+        //{
+        //    context = bookstoreContext;
+        //}
 
         public IActionResult Index()
         {
-            var bookList = context.Books.ToList();
+            var bookList = repo.books.ToList();
             return View(bookList);
         }
 
