@@ -25,7 +25,8 @@ namespace Mission09_jab468.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var bookList = context.Books.ToList();
+            return View(bookList);
         }
 
         public IActionResult Privacy()

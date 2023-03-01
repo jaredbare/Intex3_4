@@ -37,7 +37,7 @@ namespace Mission09_jab468
             services.AddRazorPages();
             services.AddDbContext<BookstoreContext>(options =>
             {
-                options.UseSqlite(Configuration["ConnectionStrings: BookstoreDBConnection"]);
+                options.UseSqlite(Configuration["ConnectionStrings:BookstoreDBConnection"]);
             });
         }
 
