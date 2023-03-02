@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Mission09_jab468.Models.Infrastructure
 {
-    [HtmlTargetElement("div", Attributes ="page-model")]
+    [HtmlTargetElement("div", Attributes ="page-blah")]
     public class PaginationTagHelper : TagHelper
     {
         private IUrlHelperFactory uhf;
