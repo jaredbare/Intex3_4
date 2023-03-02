@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Mission09_jab468.Models;
+using Mission09_jab468.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -30,10 +31,31 @@ namespace Mission09_jab468.Controllers
         //    context = bookstoreContext;
         //}
 
-        public IActionResult Index()
+        public IActionResult Index(int pageNum=1)
         {
-            var bookList = repo.books.ToList();
-            return View(bookList);
+            int pageSize = 5;
+
+            var x = new BooksViewModel
+            {
+                Books = repo.books
+                .OrderBy(b => b.Title)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumBooks = repo.books.Count(),
+                    BooksPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+
+
+            //var bookList = repo.books
+            //    .OrderBy(b => b.Title)
+            //    .Skip((pageNum-1)*pageSize)
+            //    .Take(pageSize);
+            return View(x);
         }
 
         public IActionResult Privacy()
