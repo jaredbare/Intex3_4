@@ -67,8 +67,16 @@ namespace Mission09_jab468
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+        name: "paging",
+        pattern: "Page{pageNum}",
+        defaults: new { Controller = "Home", action = "index" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+
                 endpoints.MapRazorPages();
             });
         }
