@@ -66,10 +66,20 @@ namespace Mission09_jab468
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("typepage",
+                    "{categoryType}/Page{pageNum}",
+                    new { Controller = "Home", action = "Index" });
+
                 endpoints.MapControllerRoute(
-        name: "paging",
-        pattern: "Page{pageNum}",
-        defaults: new { Controller = "Home", action = "index" });
+                    name: "paging",
+                    pattern: "Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index", pageNum=1 });
+
+                endpoints.MapControllerRoute("type",
+                    "{categoryType}",
+                    new { Controller = "Home", action = "Index", pageNum=1 });
+
+
 
                 endpoints.MapControllerRoute(
                     name: "default",

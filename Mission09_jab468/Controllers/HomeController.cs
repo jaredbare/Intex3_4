@@ -31,20 +31,25 @@ namespace Mission09_jab468.Controllers
         //    context = bookstoreContext;
         //}
 
-        public IActionResult Index(int pageNum=1)
+        public IActionResult Index(string categoryType, int pageNum=1)
         {
             int pageSize = 5;
 
             var x = new BooksViewModel
             {
                 Books = repo.books
+                .Where(b=> b.Category == categoryType || categoryType==null)
                 .OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumBooks = repo.books.Count(),
+                    TotalNumBooks = (categoryType == null
+                        ? repo.books.Count()
+                        :repo.books.Where(x=>x.Category == categoryType).Count()),
+
+
                     BooksPerPage = pageSize,
                     CurrentPage = pageNum
                 }
