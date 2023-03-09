@@ -20,6 +20,11 @@
             @*<li>Cost: $@Model.Price</li>*@
         </ul>
     </div>
-
+    <form method="post">
+        <input type="hidden" asp-for="@Model.BookId" />
+        <input type ="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+        <span class="card-text" asp-page="/Purchase" style="float:right">
+            <button type="submit" class="btn btn-success btn-sm float-end">Purchase</button>
+        </span>
+    </form>
 </div>
-<br />
