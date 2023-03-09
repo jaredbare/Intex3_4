@@ -40,6 +40,7 @@ namespace Mission09_jab468
                 options.UseSqlite(Configuration["ConnectionStrings:BookstoreDBConnection"]);
             });
             services.AddScoped<IBookListRepository, EFBookListRepository>();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,8 +85,6 @@ namespace Mission09_jab468
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-
 
                 endpoints.MapRazorPages();
             });
