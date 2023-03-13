@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Mission09_jab468.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,18 @@ namespace Mission09_jab468.Models
 {
     public class SessionBasket:Basket
     {
+        public static Basket GetBasket(IServiceProvider services)
+        {
+            ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
+
+            SessionBasket basket = session?.GetJson<SessionBasket>("Basket") ?? new SessionBasket();
+
+            return basket;
+        }
+
         [JsonIgnore]
         public ISession Session { get; set; }
+
         public override void AddItem(Book book, int qty)
         {
             base.AddItem(book, qty);
