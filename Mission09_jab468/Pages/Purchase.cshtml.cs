@@ -23,16 +23,14 @@ namespace Mission09_jab468.Pages
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
-            basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
+           
         }
         public IActionResult OnPost(int bookId, string returnUrl)
         {
             Book b = repo.books.FirstOrDefault(x => x.BookId == bookId);
-            basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
             basket.AddItem(b, 1);
 
-            HttpContext.Session.SetJson("basket", basket);
-
+         
 
             return RedirectToPage(new { returnUrl = returnUrl });
         }
