@@ -13,9 +13,10 @@ namespace Mission09_jab468.Pages
     {
         private IBookListRepository repo { get; set; }
 
-        public PurchaseModel (IBookListRepository temp)
+        public PurchaseModel (IBookListRepository temp, Basket b)
         {
             repo = temp;
+            basket = b;
         }
 
         public Basket basket { get; set; }
@@ -32,6 +33,11 @@ namespace Mission09_jab468.Pages
 
          
 
+            return RedirectToPage(new { returnUrl = returnUrl });
+        }
+        public IActionResult OnPostRemove(int bookId, string returnUrl)
+        {
+            basket.RemoveItem(basket.Items.First(x => x.Book.BookId == bookId).Book);
             return RedirectToPage(new { returnUrl = returnUrl });
         }
     }
