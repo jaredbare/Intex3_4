@@ -33,7 +33,7 @@ namespace Mission09_jab468.Controllers
                 checkout.Lines = basket.Items.ToArray();
                 repo.SaveCheckout(checkout);
                 basket.ClearBasket();
-                return View();
+                return RedirectToPage("/Completed");
             }
             else
             {
