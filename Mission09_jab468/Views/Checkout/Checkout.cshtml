@@ -5,7 +5,7 @@
 <h2> Check out now</h2>
 <p>Please enter your details to complete this transaction</p>
 
-<form method="post">
+<form method="post" asp-controller="Checkout" asp-action="Checkout">
     <h4> Ship To</h4>
     <div class="form-group">
         <label asp-for="Name">Name:</label><input asp-for="Name" class="form-control" />

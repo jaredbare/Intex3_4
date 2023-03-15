@@ -41,6 +41,7 @@ namespace Mission09_jab468
                 options.UseSqlite(Configuration["ConnectionStrings:BookstoreDBConnection"]);
             });
             services.AddScoped<IBookListRepository, EFBookListRepository>();
+            services.AddScoped<ICheckoutRepository, EFCheckoutRepository>();
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();
