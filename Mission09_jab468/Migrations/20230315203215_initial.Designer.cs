@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Mission09_jab468.Models;
+using Intex3_4.Models;
 
-namespace Mission09_jab468.Migrations
+namespace Intex3_4.Migrations
 {
     [DbContext(typeof(BookstoreContext))]
     [Migration("20230315203215_initial")]
@@ -17,7 +17,7 @@ namespace Mission09_jab468.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.32");
 
-            modelBuilder.Entity("Mission09_jab468.Models.Book", b =>
+            modelBuilder.Entity("Intex3_4.Models.Book", b =>
                 {
                     b.Property<long>("BookId")
                         .ValueGeneratedOnAdd()

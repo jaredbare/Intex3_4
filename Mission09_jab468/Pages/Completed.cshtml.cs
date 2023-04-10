@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Mission09_jab468.Pages
+namespace Intex3_4.Pages
 {
     public class CompletedModel : PageModel
     {

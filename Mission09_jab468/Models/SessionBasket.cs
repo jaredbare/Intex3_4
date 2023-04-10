@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Mission09_jab468.Infrastructure;
+using Intex3_4.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Mission09_jab468.Models
+namespace Intex3_4.Models
 {
     public class SessionBasket:Basket
     {

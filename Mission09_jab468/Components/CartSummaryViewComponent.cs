@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Mission09_jab468.Models;
+using Intex3_4.Models;
 
-namespace Mission09_jab468.Components
+namespace Intex3_4.Components
 {
     public class CartSummaryViewComponent : ViewComponent
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33214.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mission09_jab468", "Mission09_jab468\Mission09_jab468.csproj", "{76789D15-9523-4C83-9284-69C68E74F8D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intex3_4", "Mission09_jab468\Intex3_4.csproj", "{76789D15-9523-4C83-9284-69C68E74F8D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

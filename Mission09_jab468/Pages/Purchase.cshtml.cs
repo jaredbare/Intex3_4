@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Mission09_jab468.Infrastructure;
-using Mission09_jab468.Models;
+using Intex3_4.Infrastructure;
+using Intex3_4.Models;
 
-namespace Mission09_jab468.Pages
+namespace Intex3_4.Pages
 {
     public class PurchaseModel : PageModel
     {

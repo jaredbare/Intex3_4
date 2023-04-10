@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using Mission09_jab468.Models.ViewModels;
+using Intex3_4.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mission09_jab468.Models.Infrastructure
+namespace Intex3_4.Models.Infrastructure
 {
     [HtmlTargetElement("div", Attributes ="page-blah")]
     public class PaginationTagHelper : TagHelper
