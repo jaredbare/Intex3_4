@@ -20,6 +20,14 @@ namespace Intex3_4.Controllers
         //}
         private IBookListRepository repo;
 
+        //private BookstoreContext mummyContext { get; set; }
+
+        //Constructor
+        //public HomeController(BookstoreContext artifact)
+        //{
+        //    mummyContext = artifact;
+        //}
+
         public HomeController(IBookListRepository temp)
         {
             repo = temp;
@@ -68,10 +76,43 @@ namespace Intex3_4.Controllers
             return View();
         }
 
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
+        public IActionResult Background()
+        {
+            return View();
+        }
+        //[HttpGet]
+        //public IActionResult Edit(int BurialId)
         //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        // there's no need to create something totally new here
+        // so instead we send it back to our 'list of options'
+        //COME BACK HERE AND CHANGE THE NAMES
+        //ViewBag.Categories = mummyContext.Categories.ToList();
+        //var burial = mummyContext.Responses.Single(x => x.BurialId == BurialId);
+        // we return to the view (our application) so that we can see and make changes
+        // we pass in the var we just created
+        //return View("MovieForm", burial);
         //}
+
+        //[HttpPost]
+        // receives an instance of an application response that we can refer to
+        //        public IActionResult Edit(Response egypt)
+        //        {
+        //            here we update and save changes based on the info passed above
+        //            mummyContext.Update(egypt);
+        //            mummyContext.SaveChanges();
+
+        //            we pass it all into the waitlist cshtml
+        //             remember that you must also specify an action that will
+        //             actually go back to the previous waitlist action we made so it
+        //             not only shows the view but also pulls in the actions
+        //            return RedirectToAction("Waitlist");
+
+        //        }
+
+        //        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //        public IActionResult Error()
+        //        {
+        //            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //        }
     }
 }
