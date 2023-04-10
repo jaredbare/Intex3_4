@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Intex3_4.Models
 {
-    public interface IBookListRepository
+    public interface ICheckoutRepository
     {
-        IQueryable<Book> books { get; }
-
+        IQueryable<Checkout> Checkouts { get; }
+        void SaveCheckout(Checkout checkout);
     }
 }

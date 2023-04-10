@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Mission09_jab468.Models;
-using Mission09_jab468.Models.ViewModels;
+using Intex3_4.Models;
+using Intex3_4.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
-namespace Mission09_jab468.Controllers
+namespace Intex3_4.Controllers
 {
     public class HomeController : Controller
     {
@@ -31,20 +32,25 @@ namespace Mission09_jab468.Controllers
         //    context = bookstoreContext;
         //}
 
-        public IActionResult Index(int pageNum=1)
+        public IActionResult Index(string categoryType, int pageNum=1)
         {
             int pageSize = 5;
 
             var x = new BooksViewModel
             {
                 Books = repo.books
+                .Where(b=> b.Category == categoryType || categoryType==null)
                 .OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumBooks = repo.books.Count(),
+                    TotalNumBooks = (categoryType == null
+                        ? repo.books.Count()
+                        :repo.books.Where(x=>x.Category == categoryType).Count()),
+
+
                     BooksPerPage = pageSize,
                     CurrentPage = pageNum
                 }
@@ -57,7 +63,6 @@ namespace Mission09_jab468.Controllers
             //    .Take(pageSize);
             return View(x);
         }
-
         public IActionResult Privacy()
         {
             return View();

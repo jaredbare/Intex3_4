@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Mission09_jab468.Models
+namespace Intex3_4.Models
 {
     public class BookstoreContext : DbContext
     {
@@ -20,6 +20,7 @@ namespace Mission09_jab468.Models
         }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<Checkout> Checkouts { get; set; }
 
         //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //        {

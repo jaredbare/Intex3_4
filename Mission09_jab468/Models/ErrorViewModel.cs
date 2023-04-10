@@ -1,6 +1,6 @@
 using System;
 
-namespace Mission09_jab468.Models
+namespace Intex3_4.Models
 {
     public class ErrorViewModel
     {

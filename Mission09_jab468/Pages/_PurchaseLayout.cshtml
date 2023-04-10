@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Intex3_4</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha512-ZYg+hQvLlM0W9C3P6vTpes5LmJ66G2EsroxDNzwD6qiulckldb29eD9I672HL2X+LH5nRhY1sQqZLJGB+aUUPg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -19,7 +17,6 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse bg-dark text-white">
                     <partial name="_LoginPartial" />
-                    <vc:cart-summary />
                     <ul class="navbar-nav flex-grow-1 bg-dark">
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -32,24 +29,11 @@
             </div>
         </nav>
     </header>
-    <div>
-        <partial name="_CookieConsentBanner" />
-    </div>
 
-    @*<div class="container">
-            <main role="main" class="pb-3">
+
+
+    <div class="m-1 p-1">
                 @RenderBody()
-            </main>
-        </div>*@
-    <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
-            <vc:types></vc:types>
-        </div>
-        <div class="col-9">
-            <div>
-                @RenderBody()
-            </div>
-        </div>
     </div>
 
 
@@ -59,33 +43,8 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-    <!-- Add your script tag for cookie consent here -->
-    <script>
-        // Check if the cookie indicating consent exists
-        if (!document.cookie.includes('cookieConsent=true')) {
-            // Show the cookie consent popup
-            document.querySelector('.cookie-consent-popup').style.display = 'block';
-        }
-
-        // Function to handle the "OK" button click
-        document.getElementById('cookie-consent-ok').addEventListener('click', function () {
-            // Set a cookie to indicate consent
-            var expirationDate = new Date();
-            expirationDate.setTime(expirationDate.getTime() + (15 * 60 * 1000)); // 15 minutes in milliseconds
-
-            // Set a cookie to indicate consent with 15-minute expiration
-            document.cookie = 'cookieConsent=true; expires=' + expirationDate.toUTCString() + '; path=/';
-
-            // Hide the cookie consent popup
-            document.querySelector('.cookie-consent-popup').style.display = 'none';
-        });
-    </script>
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>
-
