@@ -63,7 +63,6 @@ namespace Intex3_4.Controllers
             //    .Take(pageSize);
             return View(x);
         }
-        [Authorize]
         public IActionResult Privacy()
         {
             return View();

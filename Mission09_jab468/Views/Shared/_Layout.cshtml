@@ -32,23 +32,25 @@
             </div>
         </nav>
     </header>
-
+    <div>
+        <partial name="_CookieConsentBanner" />
+    </div>
 
     @*<div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>*@
-<div class="row m-1 p-1">
-    <div id="categories" class="col-3">
-        <vc:types></vc:types>
-    </div>
-    <div class="col-9">
-        <div>
-            @RenderBody()
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>*@
+    <div class="row m-1 p-1">
+        <div id="categories" class="col-3">
+            <vc:types></vc:types>
+        </div>
+        <div class="col-9">
+            <div>
+                @RenderBody()
+            </div>
         </div>
     </div>
-</div>
 
 
     <footer class="border-top footer text-muted">
@@ -57,42 +59,33 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Add your script tag for cookie consent here -->
+    <script>
+        // Check if the cookie indicating consent exists
+        if (!document.cookie.includes('cookieConsent=true')) {
+            // Show the cookie consent popup
+            document.querySelector('.cookie-consent-popup').style.display = 'block';
+        }
+
+        // Function to handle the "OK" button click
+        document.getElementById('cookie-consent-ok').addEventListener('click', function () {
+            // Set a cookie to indicate consent
+            var expirationDate = new Date();
+            expirationDate.setTime(expirationDate.getTime() + (15 * 60 * 1000)); // 15 minutes in milliseconds
+
+            // Set a cookie to indicate consent with 15-minute expiration
+            document.cookie = 'cookieConsent=true; expires=' + expirationDate.toUTCString() + '; path=/';
+
+            // Hide the cookie consent popup
+            document.querySelector('.cookie-consent-popup').style.display = 'none';
+        });
+    </script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
-@*<!DOCTYPE html>
 
-
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"]</title>
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    </head>
-
-
-
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-    <div class="bg-dark text-white p-2">
-        <span class="navbar-brand ml-2">Welcome to the BookStore!</span>
-    </div>
-<div class="row m-1 p-1">
-    <div id="categories" class="col-3">
-        Put something useful here later
-    </div>
-<div class="col-9">
-            <div>
-                @RenderBody()
-            </div>
-        </div>
-    </div>
-</body>
-</html>*@
