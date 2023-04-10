@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Intex3_4.Infrastructure;
 using Intex3_4.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Intex3_4.Pages
 {
