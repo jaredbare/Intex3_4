@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Intex3_4.Models;
 
 namespace Intex3_4.Components
+
 {
     public class CartSummaryViewComponent : ViewComponent
     {
