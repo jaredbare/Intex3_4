@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Mission09_jab468.Models;
 
+
+// CHANGE namespace later!
 namespace Mission09_jab468.Components
 {
     public class CartSummaryViewComponent : ViewComponent
