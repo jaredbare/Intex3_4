@@ -8,14 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Mission09_jab468.Data;
-using Mission09_jab468.Models;
+using Intex3_4.Data;
+using Intex3_4.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mission09_jab468
+namespace Intex3_4
 {
     public class Startup
     {

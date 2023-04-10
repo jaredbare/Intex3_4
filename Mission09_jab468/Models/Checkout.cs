@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mission09_jab468.Models
+namespace Intex3_4.Models
 {
     public class Checkout
     {

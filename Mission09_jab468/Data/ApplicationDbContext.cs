@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Mission09_jab468.Data
+namespace Intex3_4.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Mission09_jab468.Migrations
+namespace Intex3_4.Migrations
 {
     public partial class checkout : Migration
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mission09_jab468.Infrastructure
+namespace Intex3_4.Infrastructure
 {
     public static class UrlExtensions
     {
