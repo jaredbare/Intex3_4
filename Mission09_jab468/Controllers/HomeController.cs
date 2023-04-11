@@ -12,6 +12,11 @@ namespace Intex3_4.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly MummiesContext _context;
+        public HomeController(MummiesContext temp)
+        {
+            _context = temp;
+        }
         public IActionResult Privacy()
         {
             return View();
@@ -24,7 +29,8 @@ namespace Intex3_4.Controllers
 
         public IActionResult Index1()
         {
-            return View();
+            var info = _context.Burialmain.OrderBy(x=>x.Id).ToList();
+            return View(info);
         }
 
         public IActionResult Supervised()
