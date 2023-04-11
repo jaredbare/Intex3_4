@@ -38,6 +38,9 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Textile Structure</th>
+        <th>Textile Color</th>
+        <th>Textile Function</th>
         <th>Body Depth</th>
         <th>Head Direction</th>
         <th>Sex</th>
@@ -48,15 +51,19 @@
     </tr>
     @foreach (Burialmain b in Model)
     {
-<tr>
-    <td>@b.Id</td>
-    <td>@b.Depth</td>
-    <td>@b.Headdirection</td>
-    <td>@b.Sex</td>
-    <td>@b.Ageatdeath</td>
-    <td>@b.Haircolor</td>
-    <td>@b.Burialid</td>
-    <!-- Display additional columns here -->
-</tr>
+        <tr>
+            <td>@b.Id</td>
+            <td>@b.</td>
+            <td>@b.</td>
+            <td>@b.</td>
+            <td>@b.</td>
+            <td>@b.Depth</td>
+            <td>@b.Headdirection</td>
+            <td>@b.Sex</td>
+            <td>@b.Ageatdeath</td>
+            <td>@b.Haircolor</td>
+            <td>@b.Burialid</td>
+            <!-- Display additional columns here -->
+        </tr>
     }
 </table>
