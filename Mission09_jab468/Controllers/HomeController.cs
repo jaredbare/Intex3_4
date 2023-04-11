@@ -32,6 +32,16 @@ namespace Intex3_4.Controllers
         {
             return View();
         }
+
+        public IActionResult Supervised()
+        {
+            return View();
+        }
+        public IActionResult Unsupervised()
+        {
+            return View();
+        }
+
         //public IActionResult Index(string categoryType, int pageNum=1)
         //{
         //    int pageSize = 5;
