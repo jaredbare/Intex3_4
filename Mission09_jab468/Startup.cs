@@ -59,17 +59,12 @@ namespace Intex3_4
             });
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddDbContext<BookstoreContext>(options =>
-            {
-                options.UseSqlite(Configuration["ConnectionStrings:BookstoreDBConnection"]);
-            });
-            services.AddScoped<IBookListRepository, EFBookListRepository>();
-            services.AddScoped<ICheckoutRepository, EFCheckoutRepository>();
+
+
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();
 
-            services.AddScoped<Basket>(x => SessionBasket.GetBasket(x));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 

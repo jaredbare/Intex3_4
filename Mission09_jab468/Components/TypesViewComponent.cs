@@ -9,20 +9,5 @@ namespace Intex3_4.Components
 {
     public class TypesViewComponent : ViewComponent
     {
-        private IBookListRepository bookListRepository { get; set; }
-        public TypesViewComponent (IBookListRepository temp)
-        {
-            bookListRepository = temp;
-        }
-        public IViewComponentResult Invoke()
-        {
-            ViewBag.SelectedType = RouteData?.Values["categoryType"];
-
-            var types = bookListRepository.books
-                .Select(x => x.Category)
-                .Distinct()
-                .OrderBy(x => x);
-            return View(types);
-        }
     }
 }
