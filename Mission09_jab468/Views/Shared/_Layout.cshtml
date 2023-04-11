@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Welcome to the Bookstore!</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Welcome to the Mummy store!</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,25 +28,28 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index1">Mummy's</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     <div>
-        <partial name="_CookieConsentBanner" />
+        <partial name="_CookieConsentBanner"/>
     </div>
-
-    <div class="row m-1 p-1">
+    <div>
+        @RenderBody()
+    </div>
+    @*<div class="row m-1 p-1">
         <div id="categories" class="col-3">
             <vc:types></vc:types>
         </div>
         <div class="col-9">
-            <div>
-                @RenderBody()
-            </div>
+
         </div>
-    </div>
+    </div>*@
 
 
     <footer class="border-top footer text-muted">

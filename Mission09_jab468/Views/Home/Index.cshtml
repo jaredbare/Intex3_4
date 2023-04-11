@@ -1,21 +1,37 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model BooksViewModel
-<div class="text-center">
-    <h1 class="display-4">Book List</h1>
-</div>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url(https://egypt.byu.edu/img/Main$Images$sand.jpg?637818591548107090);
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+</style>
 
-@foreach (Book b in Model.Books)
-{
-    <partial name="ProjectSummary" model="b"/>
-
-}
-@*<a asp-action="Index" asp-route-pageNum ="1">1</a>
-    <a asp-action="Index" asp-route-pageNum="2">2</a>
-    <a asp-action="Index" asp-route-pageNum="3">3</a>*@
-
-<div page-blah="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-outline-dark"
-     page-class-selected="btn-primary" class="btn-group pull-right m-1">
-</div>
+<body>
+    <section id="hero-section">
+        <!-- Your hero image and introductory content goes here -->
+        <h1> Welcome to BYU's Fag El-Gamous Project!</h1>
+        <p> Stay for a while, and learn more about this amazing, archaeological site!</p>
+    </section>
+    <section id="contact-section">
+        <h2> Contact Information</h2>
+        <p> Location: Provo, UT 84602, USA</p>
+        <p> Phone: 801-422-4636</p>
+    </section>
+    <section id="why-choose-us">
+        <h2> Why Choose Us?</h2>
+        <ul>
+            <li> Expert Archaeologists: Our team of experienced archaeologists are trained in excavation techniques and have extensive knowledge of Fag El-Gamous.</li>
+            <li> Fascinating Discoveries: Our ongoing excavations have led to significant findings, shedding light on the history and culture of ancient Egypt.</li>
+            <li> Preserving History: We prioritize the preservation of artifacts and ensure that our excavations are carried out with the utmost care and respect for the archaeological site.</li>
+            <li> Educational Opportunities: Join us to learn more about the fascinating world of archaeology through educational programs, lectures, and interactive exhibits.</li>
+        </ul>
+    </section>
+</body>
