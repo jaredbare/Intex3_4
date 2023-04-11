@@ -11,24 +11,15 @@ namespace Intex3_4.Models
         [Key]
         [Required]
         public int BurialId { get; set; }
-
-        [Required]
+        public string Title { get; set; }
         public string Color { get; set; }
-        [Required]
-        public string Structure { get; set; }
-        [Required]
-        public string Sex { get; set; }
-        [Required]
-        public int Depth { get; set; }
-        [Required]
-        public int Stature { get; set; }
-        [Required]
-        public int Age { get; set; }
-        [Required]
-        public int Head { get; set; }
-        [Required]
+        public string Structure { get; set; }  
+        public string Sex { get; set; }     
+        public string Depth { get; set; }
+        public string Stature { get; set; }
+        public string Age { get; set; } 
+        public string Head { get; set; }
         public string Function { get; set; }
-        [Required]
         public string Hair { get; set; }
 
     }

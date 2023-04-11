@@ -33,6 +33,9 @@ namespace Intex3_4
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<MummiesContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.Configure<IdentityOptions>(options =>
@@ -59,17 +62,12 @@ namespace Intex3_4
             });
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddDbContext<BookstoreContext>(options =>
-            {
-                options.UseSqlite(Configuration["ConnectionStrings:BookstoreDBConnection"]);
-            });
-            services.AddScoped<IBookListRepository, EFBookListRepository>();
-            services.AddScoped<ICheckoutRepository, EFCheckoutRepository>();
+
+
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();
 
-            services.AddScoped<Basket>(x => SessionBasket.GetBasket(x));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
@@ -101,12 +99,12 @@ namespace Intex3_4
             //    await next();
             //});
 
-            app.Use(async (context, next) =>
-            {
-                context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self'; img-src 'self'; frame-src 'self'; connect-src 'self' https://cdn.jsdelivr.net; object-src 'none'; xhr-src 'self'");
+            //app.Use(async (context, next) =>
+            //{
+            //    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self'; img-src 'self'; frame-src 'self'; connect-src 'self' https://cdn.jsdelivr.net; object-src 'none'; xhr-src 'self'");
 
-                await next();
-            });
+            //    await next();
+            //});
 
 
 

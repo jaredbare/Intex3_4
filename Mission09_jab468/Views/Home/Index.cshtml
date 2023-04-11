@@ -1,7 +1,18 @@
 ﻿@{
     ViewData["Title"] = "Index Page";
 }
-
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url(https://egypt.byu.edu/img/Main$Images$sand.jpg?637818591548107090);
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+</style>
 
 <body>
     <section id="hero-section">
@@ -22,5 +33,42 @@
             <li> Preserving History: We prioritize the preservation of artifacts and ensure that our excavations are carried out with the utmost care and respect for the archaeological site.</li>
             <li> Educational Opportunities: Join us to learn more about the fascinating world of archaeology through educational programs, lectures, and interactive exhibits.</li>
         </ul>
+    </section>
+    <section>
+        <div>
+            <a asp-controller="Home" asp-action="Index1">View Burial Information</a>
+        </div>
+
+        <div>
+            <a asp-controller="Home" asp-action="Privacy">View Privacy Information</a>
+        </div>
+        <div>
+            <p>
+                For over 25 years, archeological investigations have been conducted at Fag el-Gamous, a significant cemetery in Egypt, primarily by
+                BYU researchers. This excavation has gained worldwide attention for the intriguing insights obtained from the study of the Fag el-Gamous
+                mummies. Throughout multiple years of study, researchers have excavated more than 1,000 mummies and collected a wealth of data in field
+                notes, spreadsheets, and simple databases. This information includes the mummy's physical orientation in the ground, burial depth, hair
+                color, wrapping, sex, age, bone dimensions, accompanying items, and more. Researchers have also performed a range of analyses on the
+                excavated items, including carbon dating and DNA sequencing. The "dig" is organized using a grid system that assigns a unique identifier
+                to each burial location, which typically contains 40 or more mummies.
+            </p>
+            <br />
+            @*<p>
+                As the quantity and diversity of data associated with this excavation have grown, a few challenges (and opportunities) have emerged.
+                The researchers wanted the project to be completed using three overarching goals:
+            </p>
+            <p>
+                1. Further organize the data and develop a website where aspects of this information can be shared with researchers and
+                interested members of the public around the world.
+                <br>
+                <br>
+                2. Allow the research team to view, filter, and query this data in many ways so they can answer a variety of academic
+                research questions.
+                <br>
+                <br>
+                3. Use the data and advanced analytical/machine-learning skills to predict, explain, and visualize the wealth of data,
+                allowing further insights.
+            </p>*@
+        </div>
     </section>
 </body>
