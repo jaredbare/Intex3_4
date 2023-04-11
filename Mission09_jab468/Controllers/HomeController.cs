@@ -7,16 +7,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Intex3_4.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly MummiesContext _context;
-        public HomeController(MummiesContext temp)
-        {
-            _context = temp;
-        }
+
+        private MummiesContext context { get; set; }
+        public HomeController(MummiesContext temp) => context = temp;
+
         public IActionResult Privacy()
         {
             return View();
@@ -27,17 +27,27 @@ namespace Intex3_4.Controllers
             return View();
         }
 
-        //public IActionResult Index1()
-        //{
-        //    var info = _context.Burialmain.OrderBy(x => x.Id).ToList();
-        //    return View(info);
-        //}
         public IActionResult Index1()
         {
-            List<Burialmain> burialmains = new List<Burialmain>();
-            burialmains = _context.Burialmain.ToList();
-            return View(burialmains);
+            var info = context.Burialmain.ToList();
+            return View(info);
         }
+        //public IActionResult Index1()
+        //{
+        //    List<Burialmain> burialmains = new List<Burialmain>();
+        //    burialmains = _context.Burialmain.ToList();
+        //    return View(burialmains);
+        //}
+        //public IActionResult Index1()
+        //{
+        //    using (var context = new MyDbContext())
+        //    {
+        //        var burialmains = context.Burialmains.ToList();
+        //        return View(burialmains);
+        //    }
+        //}
+
+
 
         public IActionResult Supervised()
         {
