@@ -101,6 +101,16 @@ namespace Intex3_4
             //    await next();
             //});
 
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self'; img-src 'self'; frame-src 'self'; connect-src 'self' https://cdn.jsdelivr.net; object-src 'none'; xhr-src 'self'");
+
+                await next();
+            });
+
+
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("typepage",

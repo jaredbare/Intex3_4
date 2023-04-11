@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Intex3_4.Controllers
 {
@@ -58,8 +57,4 @@ namespace Intex3_4.Controllers
 
         //    return View(x);
         //}
-
-
-
-    }
-}
+}}
