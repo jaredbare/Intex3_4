@@ -27,10 +27,16 @@ namespace Intex3_4.Controllers
             return View();
         }
 
+        //public IActionResult Index1()
+        //{
+        //    var info = _context.Burialmain.OrderBy(x => x.Id).ToList();
+        //    return View(info);
+        //}
         public IActionResult Index1()
         {
-            var info = _context.Burialmain.OrderBy(x=>x.Id).ToList();
-            return View(info);
+            List<Burialmain> burialmains = new List<Burialmain>();
+            burialmains = _context.Burialmain.ToList();
+            return View(burialmains);
         }
 
         public IActionResult Supervised()

@@ -320,7 +320,7 @@ namespace Intex3_4.Models
 
                 entity.Property(e => e.Observations)
                     .HasColumnName("observations")
-                    .HasColumnType("character varying");
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.Orbitedge)
                     .HasColumnName("orbitedge")
@@ -377,7 +377,7 @@ namespace Intex3_4.Models
 
                 entity.Property(e => e.Description)
                     .HasColumnName("description")
-                    .HasColumnType("character varying");
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.Link)
                     .HasColumnName("link")
@@ -813,23 +813,23 @@ namespace Intex3_4.Models
 
                 entity.Property(e => e.Author)
                     .HasColumnName("author")
-                    .HasColumnType("character varying");
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.Description)
                     .HasColumnName("description")
-                    .HasColumnType("character varying");
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.Title)
                     .HasColumnName("title")
-                    .HasColumnType("character varying");
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.Url)
                     .HasColumnName("url")
-                    .HasColumnType("character varying");
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.Urltoimage)
                     .HasColumnName("urltoimage")
-                    .HasColumnType("character varying");
+                    .HasMaxLength(500);
             });
 
             modelBuilder.Entity<Photodata>(entity =>
@@ -959,7 +959,7 @@ namespace Intex3_4.Models
 
                 entity.Property(e => e.Bio)
                     .HasColumnName("bio")
-                    .HasColumnType("character varying");
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.Membername)
                     .HasColumnName("membername")
@@ -980,7 +980,7 @@ namespace Intex3_4.Models
 
                 entity.Property(e => e.Description)
                     .HasColumnName("description")
-                    .HasColumnType("character varying");
+                    .HasMaxLength(500);
 
                 entity.Property(e => e.Direction)
                     .HasColumnName("direction")
