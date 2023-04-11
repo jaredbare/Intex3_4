@@ -7,7 +7,7 @@ namespace Intex3_4.Models.ViewModels
 {
     public class BodyViewModel
     {
-        public IQueryable<Response> Bodies { get; set; }
+        public IQueryable<Burialmain> Id { get; set; }
         public PageInfo PageInfo { get; set; }
     }
 }
