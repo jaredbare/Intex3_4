@@ -5,7 +5,7 @@ for details on configuring this project to bundle and minify static web assets. 
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(248, 248, 248, 0.8); /* Use rgba to set the background color with an alpha value for transparency */
+    background-color: rgba(248, 248, 248, 0.9); /* Use rgba to set the background color with an alpha value for transparency */
     padding: 10px;
     text-align: center;
     display: none; /*Hide the popup by default*/
