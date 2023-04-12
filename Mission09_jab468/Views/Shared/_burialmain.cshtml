@@ -1,0 +1,30 @@
+﻿
+@model BodyViewModel
+
+
+
+<table class="table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Body Depth</th>
+        <th>Head Direction</th>
+        <th>Sex</th>
+        <th>Age at Death</th>
+        <th>Hair Color</th>
+        <th>Burial ID</th>
+        <!-- Add additional columns here -->
+    </tr>
+    @foreach (Burialmain b in Model.Burials)
+    {
+        <tr>
+            <td>@b.Id</td>
+            <td>@b.Depth</td>
+            <td>@b.Headdirection</td>
+            <td>@b.Sex</td>
+            <td>@b.Ageatdeath</td>
+            <td>@b.Haircolor</td>
+            <td>@b.Burialid</td>
+            <!-- Display additional columns here -->
+        </tr>
+    }
+</table>

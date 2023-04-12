@@ -1,69 +1,24 @@
-﻿@*@{
-        ViewData["Title"] = "About Us";
-    }
-    @model BodyViewModel
+﻿@{
+    ViewData["Title"] = "Textile Burial Views";
+}
 
-    <p class="text-center">
-        This page contains the information of many of the mummies found at the locations of the dig.
-        During the study, researchers excavated more than 1,000 mummies and were able to identify information about
-        each mummy's location, physical orientation int eh ground, burial depth, hair color, wrapping, sex, age, bone dimensions,
-        items accompanying the mummy, and more! Feel free to filter through this page to see what you find!
-    </p>
+@model BodyViewModel
 
-    <div class="row m-1 p-1">
-            <div id="categories" class="col-3">
-                <vc:types></vc:types>
-            </div>
-            <div class="col-9">
+<h1>Textile and Burial Records</h1>
 
-        @foreach (Burialmain r in Model.Id)
-        {
-            <partial name="ProjectSummary" model="r" />
-
-        }
-        </div>
-        </div>
-
-        <div page-blah="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
-                 page-class="btn" page-class-normal="btn-outline-dark"
-                 page-class-selected="btn-primary" class="btn-group pull-right m-1">
-            </div>*@
-
-@model List<Burialmain>
-
-
-<h1>Burialmain Records</h1>
-
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Textile Structure</th>
-        <th>Textile Color</th>
-        <th>Textile Function</th>
-        <th>Body Depth</th>
-        <th>Head Direction</th>
-        <th>Sex</th>
-        <th>Age at Death</th>
-        <th>Hair Color</th>
-        <th>Burial ID</th>
-        <!-- Add additional columns here -->
-    </tr>
-    @foreach (Burialmain b in Model)
-    {
-        <tr>
-            <td>@b.Id</td>
-            <td>@b.</td>
-            <td>@b.</td>
-            <td>@b.</td>
-            <td>@b.</td>
-            <td>@b.Depth</td>
-            <td>@b.Headdirection</td>
-            <td>@b.Sex</td>
-            <td>@b.Ageatdeath</td>
-            <td>@b.Haircolor</td>
-            <td>@b.Burialid</td>
-            <!-- Display additional columns here -->
-        </tr>
-    }
-</table>
+<h3>Burial Main</h3>
+<div>
+    <partial name="_burialmain" />
+</div>
+<h3>Textile Main</h3>
+<div>
+    <partial name="textilemain" />
+</div>
+<h3>Color Main</h3>
+<div>
+    <partial name="_color" />
+</div>
+<h3>Function Main</h3>
+<div>
+    <partial name="_Function" />
+</div>

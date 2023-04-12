@@ -27,27 +27,6 @@ namespace Intex3_4.Controllers
             return View();
         }
 
-        public IActionResult Index1()
-        {
-            var info = context.Burialmain.ToList();
-            return View(info);
-        }
-        //public IActionResult Index1()
-        //{
-        //    List<Burialmain> burialmains = new List<Burialmain>();
-        //    burialmains = _context.Burialmain.ToList();
-        //    return View(burialmains);
-        //}
-        //public IActionResult Index1()
-        //{
-        //    using (var context = new MyDbContext())
-        //    {
-        //        var burialmains = context.Burialmains.ToList();
-        //        return View(burialmains);
-        //    }
-        //}
-
-
 
         public IActionResult Supervised()
         {
@@ -58,4 +37,34 @@ namespace Intex3_4.Controllers
             return View();
         }
 
-}}
+        public ActionResult Index2()
+        {
+            using (var context = new MummiesContext()) // Replace YourDbContext with the actual name of your DbContext class
+            {
+                // Get data from Textile table
+                var textiles = context.Textile.Take(10).ToList(); // Retrieve Textile data from the database and convert to a List
+
+                // Get data from Burialmain table
+                var burials = context.Burialmain.Take(10).ToList(); // Call your existing method to retrieve Burialmain data
+                var structure = context.Structure.Take(10).ToList();
+                var color = context.Color.Take(10).ToList();
+                var function = context.Textilefunction.Take(10).ToList();
+
+                // Create and populate view model
+                var viewModel = new BodyViewModel()
+                {
+                    Textiles = textiles,
+                    Burials = burials,
+                    Structure=structure,
+                    Color=color,
+                    Function=function
+                };
+
+                return View(viewModel);
+            }
+        }
+
+
+
+    }
+}
