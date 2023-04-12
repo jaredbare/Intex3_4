@@ -55,6 +55,7 @@ namespace Intex3_4.Controllers
 
         public IActionResult Index2(int recordCount=10,int page=1, int? id=null)
 
+
         {
             using (var context = new MummiesContext()) 
             {
@@ -117,6 +118,40 @@ namespace Intex3_4.Controllers
             context.SaveChanges();
             return RedirectToAction("Index2");
         }
+
+
+
+        // HERE I TRIED TO ADD THE CREATE STUFF, NOT SURE IF IT WORKS THOUGH BUT AT LEAST NO ERRORS!
+
+        public IActionResult AddBurial()
+        {
+            return PartialView("_AddBurialPartialView");
+        }
+
+        [HttpPost]
+        public IActionResult Create(Burialmain burial)
+        {
+            if (ModelState.IsValid)
+            {
+                // Save the new record to your data store
+                context.Burialmain.Add(burial);
+                context.SaveChanges();
+
+                // Redirect the user to a confirmation page or back to the list of records
+                return RedirectToAction("Confirmation");
+            }
+            else
+            {
+                // If the model is not valid, redisplay the form with error messages
+                return PartialView("_AddBurialPartialView", burial);
+            }
+        }
+
+
+
+
+        //END OF NEW STUFF RELATED TO ADDING
+
         [HttpGet]
         public IActionResult Delete(int id)
         {
