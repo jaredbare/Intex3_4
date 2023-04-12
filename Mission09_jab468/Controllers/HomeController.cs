@@ -33,13 +33,29 @@ namespace Intex3_4.Controllers
             return View(info);
         }
 
+        [HttpGet]
         public IActionResult Supervised()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Supervised(Burialmain bm)
+        {
+            if (ModelState.IsValid)
+            {
+
+                return View("Confirmation", bm);
+            }
+            else //If Invalid
+            {
+                return View();
+            }
         }
         public IActionResult Unsupervised()
         {
             return View();
         }
 
-}}
+    }
+}
