@@ -1,3 +1,38 @@
 ﻿@{
     ViewData["Title"] = "Supervised Learning";
 }
+
+@model Intex3_4.Models.Burialmain
+
+<head>
+    <meta charset="utf-8" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+
+
+<h1>Fill Out Form</h1>
+<div>
+    <form method="post">
+
+        <div asp-validation-summary="All"></div>
+
+        <label asp-for="Length">Length:</label>
+        <input asp-for="Length" /><br />
+
+        <label asp-for="Depth">Depth:</label>
+        <input asp-for="Depth" /><br />
+
+        <label asp-for="Area">Area:</label>
+        <input asp-for="Area" /><br />
+
+        <label asp-for="Wrapping">Wrapping:</label>
+        <input asp-for="Wrapping" /><br />
+
+        <label asp-for="Ageatdeath">Age at death:</label>
+        <input asp-for="Ageatdeath" /><br />
+
+        <button type="submit">Submit</button>
+
+    </form>
+    <div asp-validation-summary="All"></div>
+</div>

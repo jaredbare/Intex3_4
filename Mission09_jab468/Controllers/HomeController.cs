@@ -28,16 +28,33 @@ namespace Intex3_4.Controllers
         }
 
 
+        [HttpGet]
         public IActionResult Supervised()
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Supervised(Burialmain bm)
+        {
+            if (ModelState.IsValid)
+            {
+                //talk to emily about importing models into the supervised page
+                return View("Confirmation", bm);
+            }
+            else //If Invalid
+            {
+                return View();
+            }
+        }
         public IActionResult Unsupervised()
         {
+            //all we need to do is return the view since its all pictures here.
             return View();
         }
 
         public ActionResult Index2(int recordCount = 20)
+
         {
             using (var context = new MummiesContext()) // Replace YourDbContext with the actual name of your DbContext class
             {
@@ -92,7 +109,6 @@ namespace Intex3_4.Controllers
         {
             Burialmain burialmain = context.Burialmain.Where(p => p.Id == id).FirstOrDefault();
             return PartialView("_BurialDetailsPArtialView", burialmain);
-        }
-
+    
     }
 }
