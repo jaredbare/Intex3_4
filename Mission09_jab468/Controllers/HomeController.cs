@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Intex3_4.Controllers
 {
@@ -92,11 +93,11 @@ namespace Intex3_4.Controllers
 
 
                 int skipCount = (page - 1) * recordCount;
-                var textiles = textilesQuery.Skip(skipCount).Take(recordCount).ToList();
-                var burials = burialsQuery.Skip(skipCount).Take(recordCount).ToList();
-                var structure = structureQuery.Skip(skipCount).Take(recordCount).ToList();
-                var color = colorQuery.Skip(skipCount).Take(recordCount).ToList();
-                var function = functionQuery.Skip(skipCount).Take(recordCount).ToList();
+                var textiles = textilesQuery.OrderBy(t => t.Id).Skip(skipCount).Take(recordCount).ToList();
+                var burials = burialsQuery.OrderBy(b => b.Id).Skip(skipCount).Take(recordCount).ToList();
+                var structure = structureQuery.OrderBy(s => s.Id).Skip(skipCount).Take(recordCount).ToList();
+                var color = colorQuery.OrderBy(c => c.Id).Skip(skipCount).Take(recordCount).ToList();
+                var function = functionQuery.OrderBy(f => f.Id).Skip(skipCount).Take(recordCount).ToList();
 
 
                 // Create and populate view model
@@ -120,12 +121,14 @@ namespace Intex3_4.Controllers
                 return View(viewModel);
             }
         }
+        
         public IActionResult Edit(int id)
         {
             Burialmain burialmain = context.Burialmain.Where(p => p.Id == id).FirstOrDefault();
             return PartialView("_EditBurialPartialView", burialmain);
         }
-        [HttpPost]
+       [Authorize]
+        [HttpPost] 
         public IActionResult Edit(Burialmain burialmain)
         {
             context.Burialmain.Update(burialmain);
@@ -136,22 +139,21 @@ namespace Intex3_4.Controllers
 
 
         // HERE I TRIED TO ADD THE CREATE STUFF, NOT SURE IF IT WORKS THOUGH BUT AT LEAST NO ERRORS!
-
-
-
-        //public IActionResult AddBurial()
-        //{
-        //    return PartialView("_AddBurialPartialView");
-        //}
-
-        //[HttpPost]
-        //public IActionResult Create(Burialmain burial)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        // Save the new record to your data store
-        //        context.Burialmain.Add(burial);
-        //        context.SaveChanges();
+        [Authorize]
+        public IActionResult AddBurial()
+        {
+            return PartialView("_AddBurialPartialView");
+        }
+        
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create(Burialmain burial)
+        {
+            if (ModelState.IsValid)
+            {
+                // Save the new record to your data store
+                context.Burialmain.Add(burial);
+                context.SaveChanges();
 
         //        // Redirect the user to a confirmation page or back to the list of records
         //        return RedirectToAction("Confirmation");
@@ -167,14 +169,15 @@ namespace Intex3_4.Controllers
 
 
         //END OF NEW STUFF RELATED TO ADDING
-
         [HttpGet]
-        public IActionResult Delete(int id)
+        [Authorize]
+             public IActionResult Delete(int id)
         {
             Burialmain burialmain = context.Burialmain.Where(p => p.Id == id).FirstOrDefault();
             return PartialView("_DeleteBurialPartialView", burialmain);
         }
         [HttpPost]
+        [Authorize]
         public IActionResult Delete(Burialmain burialmain)
         {
             context.Burialmain.Remove(burialmain);

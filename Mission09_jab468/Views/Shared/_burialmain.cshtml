@@ -16,30 +16,64 @@
     </tr>
     @foreach (Burialmain b in Model.Burials)
     {
-        <tr>
-            <td>@b.Id</td>
-            <td>@b.Depth</td>
-            <td>@b.Headdirection</td>
-            <td>@b.Sex</td>
-            <td>@b.Ageatdeath</td>
-            <td>@b.Haircolor</td>
-            <td>@b.Burialid</td>
-            <td>
-                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="@("#EditBurial-"+b.Id)" data-url="@Url.Action($"Edit/{b.Id}")">
-                    Edit
-                </button>
-                @await Html.PartialAsync("_EditBurialPartialView", b)
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="@("#burialDetails-" + b.Id)" data-url="@Url.Action($"BurialDetails/{b.Id}")">
-                    See More
-                </button>
-                @await Html.PartialAsync("_BurialDetailsPartialView", b)
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="@("#DeleteBurial-" + b.Id)" data-url="@Url.Action($"Delete/{b.Id}")">
-                    Delete
-                </button>
-                @await Html.PartialAsync("_DeleteBurialPartialView", b)
-            </td>
-            <!-- Display additional columns here -->
-        </tr>
+<tr>
+    <td>@b.Id</td>
+    <td>@b.Depth</td>
+    <td>@b.Headdirection</td>
+    <td>@b.Sex</td>
+    <td>@b.Ageatdeath</td>
+    <td>@b.Haircolor</td>
+    <td>@b.Burialid</td>
+    @*<td>
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="@("#EditBurial-"+b.Id)" data-url="@Url.Action($"Edit/{b.Id}")">
+            Edit
+        </button>
+        @await Html.PartialAsync("_EditBurialPartialView", b)
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="@("#burialDetails-" + b.Id)" data-url="@Url.Action($"BurialDetails/{b.Id}")">
+            See More
+        </button>
+        @await Html.PartialAsync("_BurialDetailsPartialView", b)
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="@("#DeleteBurial-" + b.Id)" data-url="@Url.Action($"Delete/{b.Id}")">
+            Delete
+        </button>
+        @await Html.PartialAsync("_DeleteBurialPartialView", b)
+    </td>*@
+
+
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <!-- Buttons to display when user is logged in -->
+        <td>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="@("#EditBurial-"+b.Id)" data-url="@Url.Action($"Edit/{b.Id}")">
+                Edit
+            </button>
+            @await Html.PartialAsync("_EditBurialPartialView", b)
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="@("#burialDetails-" + b.Id)" data-url="@Url.Action($"BurialDetails/{b.Id}")">
+                See More
+            </button>
+            @await Html.PartialAsync("_BurialDetailsPartialView", b)
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="@("#DeleteBurial-" + b.Id)" data-url="@Url.Action($"Delete/{b.Id}")">
+                Delete
+            </button>
+            @await Html.PartialAsync("_DeleteBurialPartialView", b)
+        </td>
+    }
+    else
+    {
+        <!-- Button to display when user is not logged in -->
+<td>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="@("#burialDetails-" + b.Id)" data-url="@Url.Action($"BurialDetails/{b.Id}")">
+        See More
+    </button>
+    @await Html.PartialAsync("_BurialDetailsPartialView", b)
+    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login For More!</a>
+</td>
+    }
+
+
+
+</tr>
     }
 </table>
 
