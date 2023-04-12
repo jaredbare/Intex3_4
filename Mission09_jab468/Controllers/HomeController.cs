@@ -27,6 +27,20 @@ namespace Intex3_4.Controllers
             return View();
         }
 
+        public IActionResult Create()
+        {
+            Burialmain burial = new Burialmain();
+            return PartialView("_AddBurialPartialView", burial);
+        }
+
+        [HttpPost]
+        public IActionResult Create(Burialmain bm)
+        {
+            context.Burialmain.Add(bm);
+            context.SaveChanges();
+            return RedirectToAction("_burialmain", "Burialmain");
+        }
+
 
         [HttpGet]
         public IActionResult Supervised()
@@ -123,29 +137,31 @@ namespace Intex3_4.Controllers
 
         // HERE I TRIED TO ADD THE CREATE STUFF, NOT SURE IF IT WORKS THOUGH BUT AT LEAST NO ERRORS!
 
-        public IActionResult AddBurial()
-        {
-            return PartialView("_AddBurialPartialView");
-        }
 
-        [HttpPost]
-        public IActionResult Create(Burialmain burial)
-        {
-            if (ModelState.IsValid)
-            {
-                // Save the new record to your data store
-                context.Burialmain.Add(burial);
-                context.SaveChanges();
 
-                // Redirect the user to a confirmation page or back to the list of records
-                return RedirectToAction("Confirmation");
-            }
-            else
-            {
-                // If the model is not valid, redisplay the form with error messages
-                return PartialView("_AddBurialPartialView", burial);
-            }
-        }
+        //public IActionResult AddBurial()
+        //{
+        //    return PartialView("_AddBurialPartialView");
+        //}
+
+        //[HttpPost]
+        //public IActionResult Create(Burialmain burial)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        // Save the new record to your data store
+        //        context.Burialmain.Add(burial);
+        //        context.SaveChanges();
+
+        //        // Redirect the user to a confirmation page or back to the list of records
+        //        return RedirectToAction("Confirmation");
+        //    }
+        //    else
+        //    {
+        //        // If the model is not valid, redisplay the form with error messages
+        //        return PartialView("_AddBurialPartialView", burial);
+        //    }
+        //}
 
 
 

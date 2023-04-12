@@ -2,9 +2,6 @@
 @model BodyViewModel
 
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createBurialModal">
-    Create New Burial
-</button>
 
 <table class="table-striped">
     <tr>
@@ -45,3 +42,5 @@
         </tr>
     }
 </table>
+
+@await Html.PartialAsync("_AddBurialPartialView", new Burialmain());
