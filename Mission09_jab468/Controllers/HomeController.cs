@@ -28,6 +28,20 @@ namespace Intex3_4.Controllers
             return View();
         }
 
+        public IActionResult Create()
+        {
+            Burialmain burial = new Burialmain();
+            return PartialView("_AddBurialPartialView", burial);
+        }
+
+        [HttpPost]
+        public IActionResult Create(Burialmain bm)
+        {
+            context.Burialmain.Add(bm);
+            context.SaveChanges();
+            return RedirectToAction("_burialmain", "Burialmain");
+        }
+
 
         [HttpGet]
         public IActionResult Supervised()
@@ -141,15 +155,15 @@ namespace Intex3_4.Controllers
                 context.Burialmain.Add(burial);
                 context.SaveChanges();
 
-                // Redirect the user to a confirmation page or back to the list of records
-                return RedirectToAction("Confirmation");
-            }
-            else
-            {
-                // If the model is not valid, redisplay the form with error messages
-                return PartialView("_AddBurialPartialView", burial);
-            }
-        }
+        //        // Redirect the user to a confirmation page or back to the list of records
+        //        return RedirectToAction("Confirmation");
+        //    }
+        //    else
+        //    {
+        //        // If the model is not valid, redisplay the form with error messages
+        //        return PartialView("_AddBurialPartialView", burial);
+        //    }
+        //}
 
 
 
