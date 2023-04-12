@@ -99,12 +99,14 @@ namespace Intex3_4
             //    await next();
             //});
 
-            //app.Use(async (context, next) =>
-            //{
-            //    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self'; img-src 'self'; frame-src 'self'; connect-src 'self' https://cdn.jsdelivr.net; object-src 'none'; xhr-src 'self'");
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval' https://code.jquery.com; style-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com https://stackpath.bootstrapcdn.com 'unsafe-inline'; font-src 'self' https://cdnjs.cloudflare.com https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/webfonts/fa-brands-400.woff2; img-src 'self' data: https://egypt.byu.edu; frame-src 'self'; connect-src 'self' https://cdn.jsdelivr.net; object-src 'none'; xhr-src 'self'");
 
-            //    await next();
-            //});
+                await next();
+            });
+
+
 
 
 
