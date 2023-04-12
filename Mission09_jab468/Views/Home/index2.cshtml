@@ -13,30 +13,9 @@
     </style>
     <body>
         <h1>Textile and Burial Records</h1>
-        @* Display pagination information *@
-        <p>Page @ViewBag.CurrentPage of @ViewBag.TotalPages</p>
 
-        @* Provide link/button for navigating to previous page *@
-        @if (ViewBag.CurrentPage > 1)
-        {
-            @Html.ActionLink("Previous", "Index2", new { page = ViewBag.CurrentPage - 1, recordCount = ViewBag.RecordCount }, new { @class = "btn btn-secondary mr-2" })
-        }
-
-        @* Provide link/button for navigating to next page *@
-        @if (ViewBag.CurrentPage < ViewBag.TotalPages)
-        {
-            @Html.ActionLink("Next", "Index2", new { page = ViewBag.CurrentPage + 1, recordCount = ViewBag.RecordCount }, new { @class = "btn btn-secondary" })
-        }
         <br />
-        <br />
-        <!-- Add buttons for each table category -->
-        <button id="btnBurial" onclick="showTable('burial')">Burial Table</button>
-        <button id="btnTextile" onclick="showTable('textile')">Textile Table</button>
-        <button id="btnColor" onclick="showTable('color')">Color Table</button>
-        <button id="btnFunction" onclick="showTable('function')">Function Table</button>
-        <br />
-        <br />
-        <div>
+        <br />        <div>
             <h4>Filter by ID</h4>
             <form asp-action="Index2" method="post">
                 <label for="id">Search an ID: </label>
@@ -51,6 +30,29 @@
                 <input type="submit" value="Submit" />
             }
         </div>
+        <br />
+        <!-- Add buttons for each table category -->
+        <button id="btnBurial" onclick="showTable('burial')">Burial Table</button>
+        <button id="btnTextile" onclick="showTable('textile')">Textile Table</button>
+        <button id="btnColor" onclick="showTable('color')">Color Table</button>
+        <button id="btnFunction" onclick="showTable('function')">Function Table</button>
+        <br />
+        <br />
+
+        @* Display pagination information *@
+        <p>Page @ViewBag.CurrentPage of @ViewBag.TotalPages</p>
+
+        @* Provide link/button for navigating to previous page *@
+        @if (ViewBag.CurrentPage > 1)
+        {
+            @Html.ActionLink("Previous", "Index2", new { page = ViewBag.CurrentPage - 1, recordCount = ViewBag.RecordCount }, new { @class = "btn btn-secondary mr-2" })
+        }
+
+        @* Provide link/button for navigating to next page *@
+        @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+        {
+            @Html.ActionLink("Next", "Index2", new { page = ViewBag.CurrentPage + 1, recordCount = ViewBag.RecordCount }, new { @class = "btn btn-secondary" })
+        }
         <center>
             <div id="_burialmain">
                 <h3>Burial Main</h3>

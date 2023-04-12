@@ -39,7 +39,7 @@ namespace Intex3_4.Controllers
         {
             context.Burialmain.Add(bm);
             context.SaveChanges();
-            return RedirectToAction("_burialmain", "Burialmain");
+            return RedirectToAction("Index2");
         }
 
 
@@ -68,7 +68,7 @@ namespace Intex3_4.Controllers
             return View();
         }
 
-        public IActionResult Index2(int recordCount=10,int page=1, int? id=null)
+        public IActionResult Index2(int recordCount=10,int page=1, long? id=null)
 
 
         {
