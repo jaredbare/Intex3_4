@@ -43,7 +43,7 @@
         </nav>
     </header>
     <div>
-        <partial name="_CookieConsentBanner"/>
+        <partial name="_CookieConsentBanner" />
     </div>
     <div style="padding: 20px 10px;">
         @RenderBody()
@@ -81,6 +81,26 @@
             // Hide the cookie consent popup
             document.querySelector('.cookie-consent-popup').style.display = 'none';
         });
+    </script>
+    <script>
+        function showTable(table) {
+            // Hide all tables
+            document.getElementById('_burialmain').style.display = 'none';
+            document.getElementById('_textilemain').style.display = 'none';
+            document.getElementById('_color').style.display = 'none';
+            document.getElementById('_Function').style.display = 'none';
+
+            // Show selected table based on button clicked
+            if (table === 'burial') {
+                document.getElementById('_burialmain').style.display = 'block';
+            } else if (table === 'textile') {
+                document.getElementById('_textilemain').style.display = 'block';
+            } else if (table === 'color') {
+                document.getElementById('_color').style.display = 'block';
+            } else if (table === 'function') {
+                document.getElementById('_Function').style.display = 'block';
+            }
+        }
     </script>
 
     @RenderSection("Scripts", required: false)

@@ -63,7 +63,6 @@ namespace Intex3_4.Controllers
                 return View(viewModel);
             }
         }
-        [HttpGet]
         public IActionResult Edit (int id)
         {
             Burialmain burialmain = context.Burialmain.Where(p => p.Id == id).FirstOrDefault();
@@ -74,7 +73,7 @@ namespace Intex3_4.Controllers
         {
             context.Burialmain.Update(burialmain);
             context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index2");
         }
         [HttpGet]
         public IActionResult Delete(int id)
@@ -87,7 +86,7 @@ namespace Intex3_4.Controllers
         {
             context.Burialmain.Remove(burialmain);
             context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index2");
         }
         public IActionResult Detail(int id)
         {

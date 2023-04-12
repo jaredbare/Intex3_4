@@ -3,22 +3,60 @@
 }
 
 @model BodyViewModel
+    <style>
+        #_burialmain,
+        #_textilemain,
+        #_color,
+        #_Function {
+            display: none;
+        }
+    </style>
+    <body>
+        <h1>Textile and Burial Records</h1>
 
-<h1>Textile and Burial Records</h1>
+        <!-- Add buttons for each table category -->
+        <button id="btnBurial" onclick="showTable('burial')">Burial Table</button>
+        <button id="btnTextile" onclick="showTable('textile')">Textile Table</button>
+        <button id="btnColor" onclick="showTable('color')">Color Table</button>
+        <button id="btnFunction" onclick="showTable('function')">Function Table</button>
+        <div id="_burialmain">
+            <h3>Burial Main</h3>
+            <partial name="_burialmain"  />
+        </div>
+        
+        <div id="_textilemain">
+            <h3>Textile Main</h3>
+            <partial name="textilemain"  />
+        </div>
+        
+        <div id="_color">
+            <h3>Color Main</h3>
+            <partial name="_color" />
+        </div>
+        <div id="_Function">
+            <h3>Function Main</h3>
+            <partial name="_Function" />
+        </div>
 
-<h3>Burial Main</h3>
-<div>
-    <partial name="_burialmain" />
-</div>
-<h3>Textile Main</h3>
-<div>
-    <partial name="textilemain" />
-</div>
-<h3>Color Main</h3>
-<div>
-    <partial name="_color" />
-</div>
-<h3>Function Main</h3>
-<div>
-    <partial name="_Function" />
-</div>
+
+    </body>
+    <script>
+        function showTable(table) {
+            // Hide all tables
+            document.getElementById('_burialmain').style.display = 'none';
+            document.getElementById('_textilemain').style.display = 'none';
+            document.getElementById('_color').style.display = 'none';
+            document.getElementById('_Function').style.display = 'none';
+
+            // Show selected table based on button clicked
+            if (table === 'burial') {
+                document.getElementById('_burialmain').style.display = 'block';
+            } else if (table === 'textile') {
+                document.getElementById('_textilemain').style.display = 'block';
+            } else if (table === 'color') {
+                document.getElementById('_color').style.display = 'block';
+            } else if (table === 'function') {
+                document.getElementById('_Function').style.display = 'block';
+            }
+        }
+    </script>
