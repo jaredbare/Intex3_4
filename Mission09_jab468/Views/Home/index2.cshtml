@@ -12,15 +12,6 @@
         }
     </style>
     <body>
-        @using (Html.BeginForm("Index2", "Home", FormMethod.Post))
-        {
-            <label for="recordCount">Number of Records: </label>
-            @Html.TextBox("recordCount", "", new { type = "number", min = 1 })
-
-            <input type="submit" value="Submit" />
-        }
-
-
         <h1>Textile and Burial Records</h1>
         @* Display pagination information *@
         <p>Page @ViewBag.CurrentPage of @ViewBag.TotalPages</p>
@@ -28,13 +19,13 @@
         @* Provide link/button for navigating to previous page *@
         @if (ViewBag.CurrentPage > 1)
         {
-            @Html.ActionLink("Previous", "Index2", new { page = ViewBag.CurrentPage - 1, recordCount = ViewBag.RecordCount }, new { @class = "btn mr-2" })
+            @Html.ActionLink("Previous", "Index2", new { page = ViewBag.CurrentPage - 1, recordCount = ViewBag.RecordCount }, new { @class = "btn btn-secondary mr-2" })
         }
 
         @* Provide link/button for navigating to next page *@
         @if (ViewBag.CurrentPage < ViewBag.TotalPages)
         {
-            @Html.ActionLink("Next", "Index2", new { page = ViewBag.CurrentPage + 1, recordCount = ViewBag.RecordCount }, new { @class = "btn" })
+            @Html.ActionLink("Next", "Index2", new { page = ViewBag.CurrentPage + 1, recordCount = ViewBag.RecordCount }, new { @class = "btn btn-secondary" })
         }
         <br />
         <br />
@@ -45,14 +36,21 @@
         <button id="btnFunction" onclick="showTable('function')">Function Table</button>
         <br />
         <br />
-        <center>
-                <h4>Filter by ID</h4>
-                <form asp-action="Index2" method="post">
-                    <label for="id">ID: </label>
-                    <input type="number" id="id" name="id" />
-                    <button type="submit">Filter</button>
-                </form>
-        </center>
+        <div>
+            <h4>Filter by ID</h4>
+            <form asp-action="Index2" method="post">
+                <label for="id">Search an ID: </label>
+                <input type="number" id="id" name="id" />
+                <button type="submit">Filter</button>
+            </form>
+            @using (Html.BeginForm("Index2", "Home", FormMethod.Post))
+            {
+                <label for="recordCount">Records per page: </label>
+                @Html.TextBox("recordCount", "", new { type = "number", min = 1 })
+
+                <input type="submit" value="Submit" />
+            }
+        </div>
         <center>
             <div id="_burialmain">
                 <h3>Burial Main</h3>
