@@ -53,28 +53,36 @@ namespace Intex3_4.Controllers
             return View();
         }
 
-        public IActionResult Index2(int recordCount=10,int page=1)
+        public IActionResult Index2(int recordCount=10,int page=1, int? id=null)
 
         {
-            //int defaultRecordCount = 10;
-            //int recordCount = defaultRecordCount;
-            //if (Request.Form["recordCount"] != null)
-            //{
-            //    int.TryParse(Request.Form["recordCount"], out recordCount);
-            //}
-            //else if (Session["recordCount"]) != null){
-            //    recordCount = (int)Session["recordCount"];
-            //}
-            //Session["recordCount"] = recordCount;
-
             using (var context = new MummiesContext()) 
             {
+
+                IQueryable<Textile> textilesQuery = context.Textile;
+                IQueryable<Burialmain> burialsQuery = context.Burialmain;
+                IQueryable<Structure> structureQuery = context.Structure;
+                IQueryable<Color> colorQuery = context.Color;
+                IQueryable<Textilefunction> functionQuery = context.Textilefunction;
+
+                // Filter by ID if provided
+                if (id.HasValue)
+                {
+                    textilesQuery = textilesQuery.Where(t => t.Id == id.Value);
+                    burialsQuery = burialsQuery.Where(b => b.Id == id.Value);
+                    structureQuery = structureQuery.Where(s => s.Id == id.Value);
+                    colorQuery = colorQuery.Where(c => c.Id == id.Value);
+                    functionQuery = functionQuery.Where(f => f.Id == id.Value);
+                }
+
+
                 int skipCount = (page - 1) * recordCount;
-                var textiles = context.Textile.Skip(skipCount).Take(recordCount).ToList(); 
-                var burials = context.Burialmain.Skip(skipCount).Take(recordCount).ToList(); 
-                var structure = context.Structure.Skip(skipCount).Take(recordCount).ToList();
-                var color = context.Color.Skip(skipCount).Take(recordCount).ToList();
-                var function = context.Textilefunction.Skip(skipCount).Take(recordCount).ToList();
+                var textiles = textilesQuery.Skip(skipCount).Take(recordCount).ToList();
+                var burials = burialsQuery.Skip(skipCount).Take(recordCount).ToList();
+                var structure = structureQuery.Skip(skipCount).Take(recordCount).ToList();
+                var color = colorQuery.Skip(skipCount).Take(recordCount).ToList();
+                var function = functionQuery.Skip(skipCount).Take(recordCount).ToList();
+
 
                 // Create and populate view model
                 var viewModel = new BodyViewModel()

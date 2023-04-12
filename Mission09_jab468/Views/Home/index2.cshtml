@@ -20,6 +20,7 @@
             <input type="submit" value="Submit" />
         }
 
+
         <h1>Textile and Burial Records</h1>
         @* Display pagination information *@
         <p>Page @ViewBag.CurrentPage of @ViewBag.TotalPages</p>
@@ -44,6 +45,14 @@
         <button id="btnFunction" onclick="showTable('function')">Function Table</button>
         <br />
         <br />
+        <center>
+                <h4>Filter by ID</h4>
+                <form asp-action="Index2" method="post">
+                    <label for="id">ID: </label>
+                    <input type="number" id="id" name="id" />
+                    <button type="submit">Filter</button>
+                </form>
+        </center>
         <center>
             <div id="_burialmain">
                 <h3>Burial Main</h3>
