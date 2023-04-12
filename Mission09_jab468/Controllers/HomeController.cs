@@ -63,8 +63,37 @@ namespace Intex3_4.Controllers
                 return View(viewModel);
             }
         }
-
-
+        [HttpGet]
+        public IActionResult Edit (int id)
+        {
+            Burialmain burialmain = context.Burialmain.Where(p => p.Id == id).FirstOrDefault();
+            return PartialView("_EditBurialPartialView", burialmain);
+        }
+        [HttpPost]
+        public IActionResult Edit(Burialmain burialmain)
+        {
+            context.Burialmain.Update(burialmain);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            Burialmain burialmain = context.Burialmain.Where(p => p.Id == id).FirstOrDefault();
+            return PartialView("_DeleteBurialPartialView", burialmain);
+        }
+        [HttpPost]
+        public IActionResult Delete(Burialmain burialmain)
+        {
+            context.Burialmain.Remove(burialmain);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public IActionResult Detail(int id)
+        {
+            Burialmain burialmain = context.Burialmain.Where(p => p.Id == id).FirstOrDefault();
+            return PartialView("_BurialDetailsPArtialView", burialmain);
+        }
 
     }
 }

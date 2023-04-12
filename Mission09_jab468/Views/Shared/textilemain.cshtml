@@ -4,16 +4,18 @@
     <tr>
         <th>ID</th>
         <th>Textile Structure</th>
+        <th>See More</th>
 
         <!-- Add additional columns here -->
     </tr>
     @foreach (Structure b in Model.Structure)
     {
-        <tr>
-            <td>@b.Id</td>
-            <td>@b.Value</td>
+<tr>
+    <td>@b.Id</td>
+    <td>@b.Value</td>
+    
 
-            <!-- Display additional columns here -->
-        </tr>
+    <!-- Display additional columns here -->
+</tr>
     }
 </table>
