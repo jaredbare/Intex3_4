@@ -68,6 +68,8 @@
             }
         </table>
 
-        @await Html.PartialAsync("_AddBurialPartialView", new Burialmain());
-    </div>
-</div>
+<button type="button" class="btn tn-info" data-toggle="modal" data-target="#AddBurial">
+    Add Burial
+</button>
+
+@await Html.PartialAsync("_AddBurialPartialView", new Burialmain());
