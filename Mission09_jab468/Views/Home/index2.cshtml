@@ -12,6 +12,14 @@
         }
     </style>
     <body>
+        @using (Html.BeginForm("Index2", "Home", FormMethod.Post))
+        {
+            <label for="recordCount">Number of Records: </label>
+            @Html.TextBox("recordCount", "", new { type = "number", min = 1 })
+
+            <input type="submit" value="Submit" />
+        }
+
         <h1>Textile and Burial Records</h1>
 
         <!-- Add buttons for each table category -->
@@ -21,15 +29,14 @@
         <button id="btnFunction" onclick="showTable('function')">Function Table</button>
         <div id="_burialmain">
             <h3>Burial Main</h3>
-
-            <partial name="_burialmain"  />
+            <partial name="_burialmain" />
         </div>
-        
+
         <div id="_textilemain">
             <h3>Textile Main</h3>
-            <partial name="textilemain"  />
+            <partial name="textilemain" />
         </div>
-        
+
         <div id="_color">
             <h3>Color Main</h3>
             <partial name="_color" />
