@@ -44,7 +44,7 @@ namespace Intex3_4.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                //talk to emily about importing models into the supervised page
                 return View("Confirmation", bm);
             }
             else //If Invalid
@@ -54,6 +54,7 @@ namespace Intex3_4.Controllers
         }
         public IActionResult Unsupervised()
         {
+            //all we need to do is return the view since its all pictures here.
             return View();
         }
 
