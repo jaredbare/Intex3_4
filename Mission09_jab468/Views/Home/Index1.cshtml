@@ -1,27 +1,61 @@
-﻿
-@{
-    ViewData["Title"] = "About Us";
-}
-@model BodyViewModel
+﻿@*@{
+        ViewData["Title"] = "About Us";
+    }
+    @model BodyViewModel
 
-<p>
-    This page contains the information of many of the mummies found at the locations of the dig.
-    During the study, researchers excavated more than 1,000 mummies and were able to identify information about
-    each mummy's location, physical orientation int eh ground, burial depth, hair color, wrapping, sex, age, bone dimensions,
-    items accompanying the mummy, and more! Feel free to filter through this page to see what you find!
-</p>
+    <p class="text-center">
+        This page contains the information of many of the mummies found at the locations of the dig.
+        During the study, researchers excavated more than 1,000 mummies and were able to identify information about
+        each mummy's location, physical orientation int eh ground, burial depth, hair color, wrapping, sex, age, bone dimensions,
+        items accompanying the mummy, and more! Feel free to filter through this page to see what you find!
+    </p>
+
+    <div class="row m-1 p-1">
+            <div id="categories" class="col-3">
+                <vc:types></vc:types>
+            </div>
+            <div class="col-9">
+
+        @foreach (Burialmain r in Model.Id)
+        {
+            <partial name="ProjectSummary" model="r" />
+
+        }
+        </div>
+        </div>
+
+        <div page-blah="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
+                 page-class="btn" page-class-normal="btn-outline-dark"
+                 page-class-selected="btn-primary" class="btn-group pull-right m-1">
+            </div>*@
+
+@model List<Burialmain>
 
 
-@*@foreach (Response r in Model.Bodies)
+<h1>Burialmain Records</h1>
+
+<table class="table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Body Depth</th>
+        <th>Head Direction</th>
+        <th>Sex</th>
+        <th>Age at Death</th>
+        <th>Hair Color</th>
+        <th>Burial ID</th>
+        <!-- Add additional columns here -->
+    </tr>
+    @foreach (Burialmain b in Model)
     {
-        <partial name="ProjectSummary" model="r"/>
-
-    }*@
-@*<a asp-action="Index" asp-route-pageNum ="1">1</a>
-    <a asp-action="Index" asp-route-pageNum="2">2</a>
-    <a asp-action="Index" asp-route-pageNum="3">3</a>*@
-
-@*<div page-blah="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-outline-dark"
-     page-class-selected="btn-primary" class="btn-group pull-right m-1">
-</div>*@
+<tr>
+    <td>@b.Id</td>
+    <td>@b.Depth</td>
+    <td>@b.Headdirection</td>
+    <td>@b.Sex</td>
+    <td>@b.Ageatdeath</td>
+    <td>@b.Haircolor</td>
+    <td>@b.Burialid</td>
+    <!-- Display additional columns here -->
+</tr>
+    }
+</table>

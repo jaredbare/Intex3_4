@@ -29,7 +29,7 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index1">Mummy's</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index2">Mummies</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="Pages" asp-controller="Home" asp-action="Supervised">Supervised</a>
@@ -43,19 +43,12 @@
         </nav>
     </header>
     <div>
-        <partial name="_CookieConsentBanner"/>
+        <partial name="_CookieConsentBanner" />
     </div>
-    <div>
+    <div style="padding: 20px 10px;">
         @RenderBody()
     </div>
-    @*<div class="row m-1 p-1">
-        <div id="categories" class="col-3">
-            <vc:types></vc:types>
-        </div>
-        <div class="col-9">
 
-        </div>
-    </div>*@
 
 
     <footer class="border-top footer text-muted">
@@ -88,6 +81,26 @@
             // Hide the cookie consent popup
             document.querySelector('.cookie-consent-popup').style.display = 'none';
         });
+    </script>
+    <script>
+        function showTable(table) {
+            // Hide all tables
+            document.getElementById('_burialmain').style.display = 'none';
+            document.getElementById('_textilemain').style.display = 'none';
+            document.getElementById('_color').style.display = 'none';
+            document.getElementById('_Function').style.display = 'none';
+
+            // Show selected table based on button clicked
+            if (table === 'burial') {
+                document.getElementById('_burialmain').style.display = 'block';
+            } else if (table === 'textile') {
+                document.getElementById('_textilemain').style.display = 'block';
+            } else if (table === 'color') {
+                document.getElementById('_color').style.display = 'block';
+            } else if (table === 'function') {
+                document.getElementById('_Function').style.display = 'block';
+            }
+        }
     </script>
 
     @RenderSection("Scripts", required: false)

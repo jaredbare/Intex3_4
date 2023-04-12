@@ -1,30 +1,33 @@
 ﻿@{
 }
-@model Book
+@model Burialmain
 
 <div class="card card-outline-primary m-1 p-1">
     <div class="bg-faded p-2">
         <h3 class="bg-light">
-            @Model.Title
-            <span class="badge badge-pill badge-primary" style="float:right">
+            @Model.Id
+            @*<span class="badge badge-pill badge-primary" style="float:right">
                 <small>@Model.Price.ToString("c")</small>
-            </span>
+            </span>*@
         </h3>
-        <div class="card-text p-1">@Model.Author</div>
-        <ul>
-            @*<li>Author: @Model.Author</li>*@
-            <li>Publisher: @Model.Publisher</li>
-            <li>ISBN: @Model.Isbn</li>
-            <li>Category: @Model.Category</li>
-            <li>Page Count: @Model.PageCount pages</li>
-            @*<li>Cost: $@Model.Price</li>*@
-        </ul>
+        @*<div class="card-text p-1">@Model.Author</div>*@
+    <ul>
+        <li>Textile Color: @Model.Squarenorthsouth</li>
+        <li>Textile Structure: @Model.Headdirection</li>
+        <li>Sex: @Model.Sex</li>
+        <li>Burial Depth: @Model.Depth</li>
+        <li>Estimate Stature: @Model.Adultsubadult</li>
+        <li>Age at Death: @Model.Facebundles</li>
+        <li>Head Direction: $@Model.Preservation</li>
+        <li>Textile Function: $@Model.Fieldbookpage</li>
+        <li>Hair Color: $@Model.Hair</li>
+    </ul>
     </div>
     <form method="post" asp-page="/Purchase">
-        <input type="hidden" asp-for="@Model.BookId" />
+        <input type="hidden" asp-for="@Model.Id" />
         <input type ="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
         <span class="card-text" style="float:right">
-            <button type="submit" class="btn btn-success btn-sm float-end">Purchase</button>
+            <button type="submit" class="btn btn-success btn-sm float-end">More Info</button>
         </span>
     </form>
 </div>
