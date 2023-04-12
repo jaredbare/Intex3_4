@@ -53,19 +53,37 @@ namespace Intex3_4.Controllers
             return View();
         }
 
-        public IActionResult Index2(int recordCount = 20)
+        public IActionResult Index2(int recordCount=10,int page=1, int? id=null)
+
 
         {
-            using (var context = new MummiesContext()) // Replace YourDbContext with the actual name of your DbContext class
+            using (var context = new MummiesContext()) 
             {
-                // Get data from Textile table
-                var textiles = context.Textile.Take(recordCount).ToList(); // Retrieve Textile data from the database and convert to a List
 
-                // Get data from Burialmain table
-                var burials = context.Burialmain.Take(recordCount).ToList(); // Call your existing method to retrieve Burialmain data
-                var structure = context.Structure.Take(recordCount).ToList();
-                var color = context.Color.Take(recordCount).ToList();
-                var function = context.Textilefunction.Take(recordCount).ToList();
+                IQueryable<Textile> textilesQuery = context.Textile;
+                IQueryable<Burialmain> burialsQuery = context.Burialmain;
+                IQueryable<Structure> structureQuery = context.Structure;
+                IQueryable<Color> colorQuery = context.Color;
+                IQueryable<Textilefunction> functionQuery = context.Textilefunction;
+
+                // Filter by ID if provided
+                if (id.HasValue)
+                {
+                    textilesQuery = textilesQuery.Where(t => t.Id == id.Value);
+                    burialsQuery = burialsQuery.Where(b => b.Id == id.Value);
+                    structureQuery = structureQuery.Where(s => s.Id == id.Value);
+                    colorQuery = colorQuery.Where(c => c.Id == id.Value);
+                    functionQuery = functionQuery.Where(f => f.Id == id.Value);
+                }
+
+
+                int skipCount = (page - 1) * recordCount;
+                var textiles = textilesQuery.Skip(skipCount).Take(recordCount).ToList();
+                var burials = burialsQuery.Skip(skipCount).Take(recordCount).ToList();
+                var structure = structureQuery.Skip(skipCount).Take(recordCount).ToList();
+                var color = colorQuery.Skip(skipCount).Take(recordCount).ToList();
+                var function = functionQuery.Skip(skipCount).Take(recordCount).ToList();
+
 
                 // Create and populate view model
                 var viewModel = new BodyViewModel()
@@ -76,7 +94,15 @@ namespace Intex3_4.Controllers
                     Color = color,
                     Function = function
                 };
+                // Calculate total number of records
+                int totalRecords = context.Burialmain.Count(); // assuming Textile table is used as the base for pagination
 
+                // Calculate total number of pages
+                int totalPages = (int)Math.Ceiling((double)totalRecords / recordCount);
+
+                // Pass pagination information to view
+                ViewBag.TotalPages = totalPages;
+                ViewBag.CurrentPage = page;
                 return View(viewModel);
             }
         }
