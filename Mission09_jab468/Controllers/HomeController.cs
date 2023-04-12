@@ -72,15 +72,15 @@ namespace Intex3_4.Controllers
                 {
                     Textiles = textiles,
                     Burials = burials,
-                    Structure=structure,
-                    Color=color,
-                    Function=function
+                    Structure = structure,
+                    Color = color,
+                    Function = function
                 };
 
                 return View(viewModel);
             }
         }
-        public IActionResult Edit (int id)
+        public IActionResult Edit(int id)
         {
             Burialmain burialmain = context.Burialmain.Where(p => p.Id == id).FirstOrDefault();
             return PartialView("_EditBurialPartialView", burialmain);
@@ -109,6 +109,7 @@ namespace Intex3_4.Controllers
         {
             Burialmain burialmain = context.Burialmain.Where(p => p.Id == id).FirstOrDefault();
             return PartialView("_BurialDetailsPArtialView", burialmain);
-    
+
+        }
     }
 }
