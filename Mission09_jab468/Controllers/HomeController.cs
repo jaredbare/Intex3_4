@@ -37,18 +37,18 @@ namespace Intex3_4.Controllers
             return View();
         }
 
-        public ActionResult Index2()
+        public ActionResult Index2(int recordCount = 20)
         {
             using (var context = new MummiesContext()) // Replace YourDbContext with the actual name of your DbContext class
             {
                 // Get data from Textile table
-                var textiles = context.Textile.Take(10).ToList(); // Retrieve Textile data from the database and convert to a List
+                var textiles = context.Textile.Take(recordCount).ToList(); // Retrieve Textile data from the database and convert to a List
 
                 // Get data from Burialmain table
-                var burials = context.Burialmain.Take(10).ToList(); // Call your existing method to retrieve Burialmain data
-                var structure = context.Structure.Take(10).ToList();
-                var color = context.Color.Take(10).ToList();
-                var function = context.Textilefunction.Take(10).ToList();
+                var burials = context.Burialmain.Take(recordCount).ToList(); // Call your existing method to retrieve Burialmain data
+                var structure = context.Structure.Take(recordCount).ToList();
+                var color = context.Color.Take(recordCount).ToList();
+                var function = context.Textilefunction.Take(recordCount).ToList();
 
                 // Create and populate view model
                 var viewModel = new BodyViewModel()
