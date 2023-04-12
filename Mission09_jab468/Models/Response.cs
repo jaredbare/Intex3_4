@@ -11,7 +11,6 @@ namespace Intex3_4.Models
         [Key]
         [Required]
         public int BurialId { get; set; }
-        public string Title { get; set; }
         public string Color { get; set; }
         public string Structure { get; set; }  
         public string Sex { get; set; }     
