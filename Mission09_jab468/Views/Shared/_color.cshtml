@@ -1,0 +1,19 @@
+﻿@model BodyViewModel
+
+<table class="table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Color</th>
+
+        <!-- Add additional columns here -->
+    </tr>
+    @foreach (Color b in Model.Color)
+    {
+    <tr>
+        <td>@b.Id</td>
+        <td>@b.Value</td>
+
+        <!-- Display additional columns here -->
+    </tr>
+    }
+</table>
