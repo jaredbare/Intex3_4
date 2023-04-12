@@ -13,6 +13,41 @@
                 <form asp-action="Create" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
+                        <label asp-for="Id" class="control-label"></label>
+                        <input asp-for="Id" class="form-conrol" />
+                        <span asp-validation-for="Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Depth" class="control-label"></label>
+                        <input asp-for="Depth" class="form-conrol" />
+                        <span asp-validation-for="Depth" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Headdirection" class="control-label"></label>
+                        <input asp-for="Headdirection" class="form-conrol" />
+                        <span asp-validation-for="Headdirection" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Sex" class="control-label"></label>
+                        <input asp-for="Sex" class="form-conrol" />
+                        <span asp-validation-for="Sex" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Ageatdeath" class="control-label"></label>
+                        <input asp-for="Ageatdeath" class="form-conrol" />
+                        <span asp-validation-for="Ageatdeath" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Haircolor" class="control-label"></label>
+                        <input asp-for="Haircolor" class="form-conrol" />
+                        <span asp-validation-for="Haircolor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Burialid" class="control-label"></label>
+                        <input asp-for="Burialid" class="form-conrol" />
+                        <span asp-validation-for="Burialid" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="Squarenorthsouth" class="control-label"></label>
                         <input asp-for="Squarenorthsouth" class="form-conrol" />
                         <span asp-validation-for="Squarenorthsouth" class="text-danger"></span>
@@ -82,6 +117,7 @@
                         <input asp-for="Text" class="form-conrol" />
                         <span asp-validation-for="Text" class="text-danger"></span>
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn-primary">Save</button>
