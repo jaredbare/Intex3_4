@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="bin\" />
     <Folder Include="Components\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
