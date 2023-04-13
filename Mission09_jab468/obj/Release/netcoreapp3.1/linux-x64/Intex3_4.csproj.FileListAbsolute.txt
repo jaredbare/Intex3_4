@@ -1,0 +1,17 @@
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\Intex3_4.csproj.AssemblyReference.cache
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\Intex3_4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\Intex3_4.AssemblyInfoInputs.cache
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\Intex3_4.AssemblyInfo.cs
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\Intex3_4.csproj.CoreCompileInputs.cache
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\Intex3_4.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\Intex3_4.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\Intex3_4.RazorAssemblyInfo.cache
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\Intex3_4.RazorAssemblyInfo.cs
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\staticwebassets\Intex3_4.StaticWebAssets.Manifest.cache
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\staticwebassets\Intex3_4.StaticWebAssets.Pack.cache
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\staticwebassets\msbuild.Intex3_4.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\staticwebassets\msbuild.build.Intex3_4.props
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\staticwebassets\msbuild.buildMultiTargeting.Intex3_4.props
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\staticwebassets\msbuild.buildTransitive.Intex3_4.props
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\Intex3_4.dll
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\obj\Release\netcoreapp3.1\linux-x64\Intex3_4.pdb
