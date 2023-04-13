@@ -1,0 +1,1 @@
+web: dotnet bin/Debug/netcoreapp3.1/Intex3_4.dll
