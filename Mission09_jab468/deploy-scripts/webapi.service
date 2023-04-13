@@ -1,0 +1,18 @@
+[Unit]
+Description=Intex Project 3_4
+
+[Service]
+WorkingDirectory=/var/www
+ExecStart=/usr/bin/dotnet /var/www/IntexProject3_4.dll
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=webapi
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+Environment=ASPNETCORE_URLS=http://*:80
+
+[Install]
+WantedBy=multi-user.target
+
+C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\Intex3_4.csproj
