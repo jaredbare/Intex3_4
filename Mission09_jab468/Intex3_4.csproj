@@ -27,9 +27,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="bin\" />
+    <Folder Include="bin\Debug\netcoreapp3.1\refs\" />
     <Folder Include="Components\" />
     <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netcoreapp3.1\Intex3_4.dll" />
   </ItemGroup>
 
 </Project>
