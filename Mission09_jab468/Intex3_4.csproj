@@ -32,8 +32,4 @@
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="bin\Debug\netcoreapp3.1\Intex3_4.dll" />
-  </ItemGroup>
-
 </Project>
