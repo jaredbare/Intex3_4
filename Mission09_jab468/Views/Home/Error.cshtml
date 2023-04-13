@@ -1,0 +1,14 @@
+﻿@model Microsoft.AspNetCore.Diagnostics.ExceptionHandlerFeature
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1>Error</h1>
+
+<p>An error occurred while processing your request.</p>
+
+@if (Model?.Error != null)
+{
+    <pre>@Model.Error</pre>
+}

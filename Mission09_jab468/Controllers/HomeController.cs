@@ -18,6 +18,7 @@ namespace Intex3_4.Controllers
         private MummiesContext context { get; set; }
         public HomeController(MummiesContext temp) => context = temp;
 
+        [Authorize(Roles="Admin")]
         public IActionResult Privacy()
         {
             return View();
@@ -157,6 +158,12 @@ namespace Intex3_4.Controllers
             Burialmain burialmain = context.Burialmain.Where(p => p.Id == id).FirstOrDefault();
             return PartialView("_BurialDetailsPArtialView", burialmain);
 
+        }
+
+        [ResponseCache(Duration = 0, Location =ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
