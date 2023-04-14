@@ -10042,19 +10042,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jared\\.nuget\\packages\\": {}
+    "C:\\Users\\natik\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jared\\source\\repos\\Mission09_jab468\\Mission09_jab468\\Intex3_4.csproj",
+      "projectUniqueName": "C:\\Users\\natik\\source\\repos\\Intex3_4\\Mission09_jab468\\Intex3_4.csproj",
       "projectName": "Intex3_4",
-      "projectPath": "C:\\Users\\jared\\source\\repos\\Mission09_jab468\\Mission09_jab468\\Intex3_4.csproj",
-      "packagesPath": "C:\\Users\\jared\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jared\\source\\repos\\Mission09_jab468\\Mission09_jab468\\obj\\",
+      "projectPath": "C:\\Users\\natik\\source\\repos\\Intex3_4\\Mission09_jab468\\Intex3_4.csproj",
+      "packagesPath": "C:\\Users\\natik\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\natik\\source\\repos\\Intex3_4\\Mission09_jab468\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jared\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\natik\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

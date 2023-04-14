@@ -33,11 +33,16 @@ namespace Intex3_4
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDbContext<MummiesContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("BookstoreDBConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddDefaultUI()
+                .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
             services.Configure<IdentityOptions>(options =>
             {
                 // Default Password settings.
@@ -60,6 +65,9 @@ namespace Intex3_4
                 options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
                 options.SlidingExpiration = true;
             });
+
+
+
             services.AddControllersWithViews();
             services.AddRazorPages();
 
