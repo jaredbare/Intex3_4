@@ -1,6 +1,5 @@
 C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\bin\Debug\netcoreapp3.1\Intex3_4.StaticWebAssets.xml
 C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\bin\Debug\netcoreapp3.1\Intex3_4.exe
 C:\Users\jared\source\repos\Mission09_jab468\Mission09_jab468\bin\Debug\netcoreapp3.1\Intex3_4.deps.json
